@@ -9,11 +9,10 @@ body {
     background-color: white;
     width: 100%;
     height: 100%;
-
+    font-size: 16px;
 }
 
 #main {
-
     width: 100%;
     height: 100vh;
     position: relative;
@@ -27,6 +26,7 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    padding: 20px;
 }
 
 .item {
@@ -297,7 +297,9 @@ body {
     background-position: center;
     color: #fff;
     display: flex;
-
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
 }
 
 .about-container {
@@ -305,7 +307,7 @@ body {
     border-radius: 10px;
     padding: 30px;
     text-align: center;
-
+    background-color: rgba(27, 34, 48, 0.75);
 }
 
 .about-container h2 {
@@ -315,8 +317,9 @@ body {
 }
 
 .about-container p {
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 
@@ -466,4 +469,79 @@ footer {
 
 .contact-button:hover {
     background-color: #FFC107;
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .item {
+        width: 90%;
+        height: auto;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-container, .services-container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content .name {
+        font-size: 24px;
+    }
+
+    .content .desc {
+        font-size: 14px;
+    }
+
+    .contact-button, .content > button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+.hamburger {
+    display: none; /* Ocultar por defecto */
+    background: none;
+    border: none;
+    color: #FFD700;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex; /* Mostrar en línea por defecto */
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ocultar en pantallas pequeñas */
+        flex-direction: column; /* Cambiar a columna */
+        position: absolute;
+        top: 60px; /* Ajustar según la altura del navbar */
+        right: 0;
+        background-color: #003366; /* Color de fondo */
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostrar cuando está activo */
+    }
+
+    .hamburger {
+        display: block; /* Mostrar el botón hamburguesa */
+    }
 }
